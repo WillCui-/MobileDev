@@ -312,7 +312,7 @@ export default function Dashboard() {
       
       {/* Whatever you put here will appear on all your pages, style appropriately! */}
       <div className={classes.footer}>
-        <p>MIT License, dino@mitre.org 2020</p>
+        <p>MIT License, dinorows@gmail.com 2020</p>
       </div>
     </div>
   );
