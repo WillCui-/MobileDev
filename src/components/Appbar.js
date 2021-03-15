@@ -26,6 +26,7 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import PeopleIcon from '@material-ui/icons/People';
 import BarChartIcon from '@material-ui/icons/BarChart';
 import LayersIcon from '@material-ui/icons/Layers';
+import MusicNoteIcon from '@material-ui/icons/MusicNote';
 
 // import your components:
 import Home from "../pages/Home";
@@ -34,8 +35,11 @@ import Chart from "../pages/Chart/Chart";
 import Deposits from "../pages/Deposits/Deposits";
 import Orders from "../pages/Orders/Orders";
 import Store from "../pages/Store/Store";
+import DIWK from "../pages/DIWK/DIWK";
+import Flourescent from '../pages/Flourescent/Flourescent';
+import MardyBum from '../pages/MardyBum/MardyBum';
 
-const drawerWidth = 240;
+const drawerWidth = 300;
 const history = createBrowserHistory();
 
 // css
@@ -111,7 +115,9 @@ const useStyles = makeStyles((theme) => ({
   appBarSpacer: theme.mixins.toolbar,
   content: {
     flexGrow: 1,
-    height: '100vh',
+    marginTop: '60px',
+    marginBottom: '55px',
+    height: '84vh',
     overflow: 'auto',
   },
   container: {
@@ -167,8 +173,8 @@ export default function Dashboard() {
       <CssBaseline />
 
       {/* This is the header AppBar */}
-      <AppBar position="absolute" className={clsx(classes.appBar, 
-          open && classes.appBarShift, collapsed && classes.appBar)}>
+      <AppBar position="absolute" className={clsx(classes.appBar,
+        open && classes.appBarShift, collapsed && classes.appBar)}>
         <Toolbar title={title} className={classes.toolbar}>
 
           {/* The Menu icon exposes the left pane menu bar */}
@@ -203,7 +209,7 @@ export default function Dashboard() {
         <Drawer
           variant="permanent"
           classes={{
-            paper: clsx(classes.drawerPaper, 
+            paper: clsx(classes.drawerPaper,
               !open && classes.drawerPaperClose,
               collapsed && classes.drawerPaperCollapsed)
           }}
@@ -227,7 +233,7 @@ export default function Dashboard() {
                 <BarChartIcon />
               </ListItemIcon>
               <ListItemText primary="Charts" />
-              { title === 'Charts' && 
+              {title === 'Charts' &&
                 <ListItemIcon>
                   <IconButton onClick={handleDrawerCollapsed}>
                     <ChevronLeftIcon />
@@ -242,7 +248,7 @@ export default function Dashboard() {
                 <LayersIcon />
               </ListItemIcon>
               <ListItemText primary="Deposits" />
-              { title === 'Deposits' && 
+              {title === 'Deposits' &&
                 <ListItemIcon>
                   <IconButton onClick={handleDrawerCollapsed}>
                     <ChevronLeftIcon />
@@ -257,7 +263,7 @@ export default function Dashboard() {
                 <PeopleIcon />
               </ListItemIcon>
               <ListItemText primary="Orders" />
-              { title === 'Orders' && 
+              {title === 'Orders' &&
                 <ListItemIcon>
                   <IconButton onClick={handleDrawerCollapsed} visible={title}>
                     <ChevronLeftIcon />
@@ -272,7 +278,7 @@ export default function Dashboard() {
                 <ShoppingCartIcon />
               </ListItemIcon>
               <ListItemText primary="Store" />
-              { title === 'Store' && 
+              {title === 'Store' &&
                 <ListItemIcon>
                   <IconButton onClick={handleDrawerCollapsed} visible={title}>
                     <ChevronLeftIcon />
@@ -287,7 +293,50 @@ export default function Dashboard() {
                 <DashboardIcon />
               </ListItemIcon>
               <ListItemText primary="About" />
-              { title === 'About' && 
+              {title === 'About' &&
+                <ListItemIcon>
+                  <IconButton onClick={handleDrawerCollapsed}>
+                    <ChevronLeftIcon />
+                  </IconButton>
+                </ListItemIcon>
+              }
+            </ListItem>
+
+            {/* Lyrics */}
+            <ListItem button component={Link} to="/DIWK" onClick={onItemClick('Do I Wanna Know?')}>
+              <ListItemIcon>
+                <MusicNoteIcon />
+              </ListItemIcon>
+              <ListItemText primary="Do I Wanna Know?" />
+              {title === 'Do I Wanna Know?' &&
+                <ListItemIcon>
+                  <IconButton onClick={handleDrawerCollapsed}>
+                    <ChevronLeftIcon />
+                  </IconButton>
+                </ListItemIcon>
+              }
+            </ListItem>
+
+            <ListItem button component={Link} to="/Flourescent" onClick={onItemClick('Flourescent Adolescent')}>
+              <ListItemIcon>
+                <MusicNoteIcon />
+              </ListItemIcon>
+              <ListItemText primary="Flourescent Adolescent" />
+              {title === 'Flourescent Adolescent' &&
+                <ListItemIcon>
+                  <IconButton onClick={handleDrawerCollapsed}>
+                    <ChevronLeftIcon />
+                  </IconButton>
+                </ListItemIcon>
+              }
+            </ListItem>
+
+            <ListItem button component={Link} to="/MardyBum" onClick={onItemClick('Mardy Bum')}>
+              <ListItemIcon>
+                <MusicNoteIcon />
+              </ListItemIcon>
+              <ListItemText primary="Mardy Bum" />
+              {title === 'Mardy Bum' &&
                 <ListItemIcon>
                   <IconButton onClick={handleDrawerCollapsed}>
                     <ChevronLeftIcon />
@@ -296,7 +345,6 @@ export default function Dashboard() {
               }
             </ListItem>
           </List>
-
         </Drawer>
 
         {/* This is your mission control: Matches URLs above to your components */}
@@ -307,9 +355,12 @@ export default function Dashboard() {
           <Route path="/orders" component={Orders} />
           <Route path="/store" component={Store} />
           <Route path="/about" component={About} />
+          <Route path="/DIWK" component={DIWK} />
+          <Route path="/Flourescent" component={Flourescent} />
+          <Route path="/MardyBum" component={MardyBum} />
         </main>
       </Router>
-      
+
       {/* Whatever you put here will appear on all your pages, style appropriately! */}
       <div className={classes.footer}>
         <p>MIT License, dinorows@gmail.com 2020</p>

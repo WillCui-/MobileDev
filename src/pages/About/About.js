@@ -6,7 +6,6 @@ import 'github-markdown-css'
 const AboutPage = () => {
   const markdown = `
   # Lorem Ipsum
-  ## Lorem Ipsum
 
   **L**orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
   incididunt ut labore et dolore magna aliqua. Leo vel orci porta non. Enim facilisis 
